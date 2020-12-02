@@ -4,9 +4,9 @@ RUN echo https://dl-cdn.alpinelinux.org/alpine/edge/testing >> /etc/apk/reposito
 
 RUN apk --update add tor
 
-EXPOSE 9050/tcp
+EXPOSE 9100/tcp
 
-USER nobody
+USER tor
 
 CMD [ "tor", "-f", "/etc/tor/torrc" ]
 

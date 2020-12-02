@@ -22,9 +22,7 @@ done < <(docker image inspect -f '{{json .Config.ExposedPorts}}' $imageId|jq -r 
 HOST_MNT=${HOST_MNT:-$BWD/mnt}
 GUEST_MNT=${GUEST_MNT:-$BWD/mnt}
 
-DOCKER_RUN_ARGS+=( -v $GUEST_MNT/etc/letsencrypt:/etc/letsencrypt:ro )
-DOCKER_RUN_ARGS+=( -v $GUEST_MNT/etc/openldap/slapd.conf:/etc/openldap/slapd.conf )
-DOCKER_RUN_ARGS+=( -v $GUEST_MNT/var/lib/openldap/openldap-data:/var/lib/openldap/openldap-data )
+DOCKER_RUN_ARGS+=( -v $GUEST_MNT/etc/tor/torrc:/etc/tor/torrc )
 
 docker update --restart=no $NAME || true
 docker stop $NAME || true

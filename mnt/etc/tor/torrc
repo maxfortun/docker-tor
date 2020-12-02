@@ -1,0 +1,7 @@
+SOCKSPort 0.0.0.0:9100
+
+Log notice stderr
+
+DataDirectory /var/lib/tor
+
+
